@@ -1,7 +1,7 @@
 export const AboutPage = (render) => {
   const template = `
         <div>
-        <img class="images" src="https://dummyimage.com/1024x300/828bcc/0a2aa8&text=About+me" style="width:100%">
+        <img class="images" src="https://dummyimage.com/1024x300/828bcc/0a2aa8&text=About+me" style="width:100%;">
         </div>
         <h1 style="display: flex; justify-content: center; margin-top: 15px; margin-bottom: 15px; font-size: 40px">Welcome</h1>
 

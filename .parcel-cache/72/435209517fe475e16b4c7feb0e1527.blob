@@ -1,0 +1,133 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CounterPage = void 0;
+
+var _redux = require("redux");
+
+// import { fromEvent } from "rxjs";
+const CounterPage = render => {
+  document.getElementById("app").innerHTML = `
+    <h1>Basic Example of Redux</h1>
+    <h2> Counter in Vanilla JS </h2>
+    <div>
+      Counter:
+      <span id='counter'></span>
+    </div>
+    
+    <button id='inc'>Increment</button>
+    <button id='dec'>Decrement</button>
+    
+    `;
+
+  function reducer(state, action) {
+    console.log(`this is the action type that is dispatched ${action.type}`);
+
+    switch (action.type) {
+      case "INC":
+        return Object.assign({}, state, {
+          counter: state.counter + 1
+        });
+
+      case "DEC":
+        return Object.assign({}, state, {
+          counter: state.counter - 1
+        });
+
+      default:
+        return state;
+    }
+  }
+
+  let initialState = {
+    counter: 3
+  };
+  const store = (0, _redux.createStore)(reducer, initialState); // Function to update view (this might be React or Angular in a real app)
+
+  function updateView() {
+    console.log(`get state everery update ${store.getState().counter}`);
+    document.querySelector("#counter").innerText = store.getState().counter;
+  }
+
+  store.subscribe(updateView); // Update view for the first time
+
+  updateView(); // Listen to click events
+
+  document.getElementById("inc").onclick = () => store.dispatch({
+    type: "INC"
+  });
+
+  document.getElementById("dec").onclick = () => store.dispatch({
+    type: "DEC"
+  });
+}; // export const CounterPage = (render) => {
+//     let count = 0;
+//     const template = /*html*/ `
+//         <h1>Counter</h1>
+//         <div>${count}</div>
+//         <button class="addButton">+</button>
+//         <button class="subtractButton">-</button>
+//     `
+//     render(template);
+//     return () => {
+//         const add = document.querySelector('.addButton')
+//         const subtract = document.querySelector('.subtractButton')
+//         const subtractClick$ = fromEvent(subtract,'click');
+//         const addClick$ = fromEvent(add,'click');
+//         console.log(add,subtract)
+//         add.addEventListener('click',() => console.log('YEEE'))
+//         subtractClick$.subscribe(el => {
+//             console.log('Hey')
+//             count--;
+//             render(template);
+//         })
+//         addClick$.subscribe(el => {
+//             console.log('Hey2')
+//             count++;
+//             render(template);
+//         })
+//     }
+// }
+// export class CounterPage {
+//     count = 0;
+//     template = `
+//         <h1>Counter</h1>
+//         <div>${this.count}</div>
+//         <button class="addButton">+</button>
+//         <button class="subtractButton">-</button>
+//     `
+//     addButton = null;
+//     subtractButton = null;
+//     subscriptions = [];
+//     renderer = null
+//     constructor(renderer) {
+//         this.renderer = renderer
+//         this.renderer(this.template)
+//         this.getButtonElements();
+//         this.setupEvents();
+//     }
+//     getButtonElements() {
+//         this.add = document.querySelector('.addButton')
+//         this.subtract = document.querySelector('.subtractButton')
+//     }
+//     setupEvents() {
+//         const subtractClick$ = fromEvent(this.subtract,'click').subscribe(el => {
+//             this.count--;
+//             this.renderer(this.template);
+//         });
+//         const addClick$ = fromEvent(this.add,'click').subscribe(el => {
+//             console.log(el)
+//             this.count++;
+//             this.renderer(this.template);
+//         });
+//         this.subscriptions = [subtractClick$,addClick$]
+//     }
+//     destroy() {
+//         this.subscriptions.forEach(sub => sub.unsubscribe())
+//     }
+// }
+
+
+exports.CounterPage = CounterPage;

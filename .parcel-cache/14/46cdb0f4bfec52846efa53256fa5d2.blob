@@ -1,0 +1,38 @@
+"use strict";
+
+require("./design/styles.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+var _pages = require("./pages");
+
+var _utils = require("./utils");
+
+var _login = require("./pages/login");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", () => {
+  const router = new _navigo.default("/");
+  router.on({
+    "/about": {
+      as: "about",
+      uses: function (match) {
+        (0, _pages.AboutPage)((0, _utils.render)('#main'));
+      }
+    },
+    "/login": {
+      as: "login",
+      uses: function (match) {
+        (0, _login.LoginPage)((0, _utils.render)('#main'));
+      } // {lista dei film preferiti ... prendo un api qualunque ... themoviedb ... import firebase che mi salva i }
+
+    },
+    "/": {
+      as: "counter",
+      uses: function (match) {
+        (0, _pages.CounterPage)((0, _utils.render)('#main'));
+      }
+    }
+  }).resolve();
+});

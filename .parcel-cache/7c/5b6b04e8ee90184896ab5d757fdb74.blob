@@ -1,0 +1,62 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CounterPage = void 0;
+
+// import { fromEvent } from "rxjs";
+const CounterPage = render => {
+  const template =
+  /*html*/
+  `
+  <div class="container">
+            <h1 class="header">
+                Counter
+            </h1>
+
+            <span class="value" id="value"> 0 </span>
+
+            <div class="button-container" id="buttons">
+                <button class="btn-decrease">Decrease</button>
+                <button class="btn-reset">Reset</button>
+                <button class="btn-increase">Increase</button>
+            </div>
+        </div>  
+  `;
+  const dbtn = document.querySelector(".btn-decrease");
+  const rbtn = document.querySelector(".btn-reset");
+  const ibtn = document.querySelector(".btn-increase");
+  const value = document.getElementById("value");
+  let count = 0;
+
+  if (dbtn) {
+    dbtn.addEventListener("click", function () {
+      count--;
+
+      if (count < 0) {
+        value.style.color = "rgb(117, 0, 0)";
+      }
+
+      value.innerHTML = count;
+    });
+  }
+
+  ;
+  rbtn.addEventListener("click", function () {
+    count = 0;
+    value.style.color = "#463F3A";
+    value.innerHTML = count;
+  });
+  ibtn.addEventListener("click", function () {
+    count++;
+
+    if (count > 0) {
+      value.style.color = "rgb(2, 75, 2)";
+    }
+
+    value.innerHTML = count;
+  });
+};
+
+exports.CounterPage = CounterPage;

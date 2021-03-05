@@ -8,9 +8,6 @@ window.addEventListener("load", () => {
   const router = new Navigo("/");
 
   router
-    .on(() => {
-      new CounterPage(render('#main'))
-    })
     .on({
       "/about": {
         as: "about",
@@ -24,7 +21,15 @@ window.addEventListener("load", () => {
         uses: function (match) {
           LoginPage(render('#main'))
         },
+        // {lista dei film preferiti ... prendo un api qualunque ... themoviedb ... import firebase che mi salva i film preferiti}
       },
+
+      "/": {
+        as: "counter",
+        uses: function (match) {
+          CounterPage(render('#main'))
+        },
+      }
     })
     .resolve();
 });
