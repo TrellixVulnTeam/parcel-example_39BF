@@ -1,0 +1,89 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CounterPage = void 0;
+
+var _rxjs = require("rxjs");
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// export const CounterPage = (render) => {
+//     let count = 0;
+//     const template = /*html*/ `
+//         <h1>Counter</h1>
+//         <div>${count}</div>
+//         <button class="addButton">+</button>
+//         <button class="subtractButton">-</button>
+//     `
+//     render(template);
+//     return () => {
+//         const add = document.querySelector('.addButton')
+//         const subtract = document.querySelector('.subtractButton')
+//         const subtractClick$ = fromEvent(subtract,'click');
+//         const addClick$ = fromEvent(add,'click');
+//         console.log(add,subtract)
+//         add.addEventListener('click',() => console.log('YEEE'))
+//         subtractClick$.subscribe(el => {
+//             console.log('Hey')
+//             count--;
+//             render(template);
+//         })
+//         addClick$.subscribe(el => {
+//             console.log('Hey2')
+//             count++;
+//             render(template);
+//         })
+//     }
+// }
+class CounterPage {
+  constructor(renderer) {
+    _defineProperty(this, "count", 0);
+
+    _defineProperty(this, "template", `
+        <h1>Counter</h1>
+        <div>${this.count}</div>
+        <button class="addButton">+</button>
+        <button class="subtractButton">-</button>
+    `);
+
+    _defineProperty(this, "addButton", null);
+
+    _defineProperty(this, "subtractButton", null);
+
+    _defineProperty(this, "subscriptions", []);
+
+    _defineProperty(this, "renderer", null);
+
+    this.renderer = renderer;
+    this.renderer(this.template);
+    this.getButtonElements();
+    this.setupEvents();
+  }
+
+  getButtonElements() {
+    this.add = document.querySelector('.addButton');
+    this.subtract = document.querySelector('.subtractButton');
+  }
+
+  setupEvents() {
+    const subtractClick$ = (0, _rxjs.fromEvent)(this.subtract, 'click').subscribe(el => {
+      this.count--;
+      this.renderer(this.template);
+    });
+    const addClick$ = (0, _rxjs.fromEvent)(this.add, 'click').subscribe(el => {
+      console.log(el);
+      this.count++;
+      this.renderer(this.template);
+    });
+    this.subscriptions = [subtractClick$, addClick$];
+  }
+
+  destroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
+
+}
+
+exports.CounterPage = CounterPage;

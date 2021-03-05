@@ -1,0 +1,13 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "AboutPage", {
+  enumerable: true,
+  get: function () {
+    return _about.AboutPage;
+  }
+});
+
+var _about = require("./about.js");

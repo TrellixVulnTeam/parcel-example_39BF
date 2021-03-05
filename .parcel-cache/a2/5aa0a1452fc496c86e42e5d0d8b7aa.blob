@@ -1,0 +1,41 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CounterPage = void 0;
+
+var _rxjs = require("rxjs");
+
+const CounterPage = render => {
+  let count = 0;
+  const template =
+  /*html*/
+  `
+        <h1>Counter</h1>
+        <div>${count}</div>
+        <button class="addButton">+</button>
+        <button class="subtractButton">-</button>
+    `;
+  render(template);
+  return () => {
+    const add = document.querySelector('.addButton');
+    const subtract = document.querySelector('.subtractButton');
+    const subtractClick$ = (0, _rxjs.fromEvent)(subtract, 'click');
+    const addClick$ = (0, _rxjs.fromEvent)(add, 'click');
+    console.log(add, subtract);
+    add.addEventListener('click', () => console.log('YEEE'));
+    subtractClick$.subscribe(el => {
+      console.log('Hey');
+      count--;
+      render(template);
+    });
+    addClick$.subscribe(el => {
+      console.log('Hey2');
+      count++;
+      render(template);
+    });
+  };
+};
+
+exports.CounterPage = CounterPage;

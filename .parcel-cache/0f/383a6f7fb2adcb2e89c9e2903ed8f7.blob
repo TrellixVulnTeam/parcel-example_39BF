@@ -1,0 +1,38 @@
+"use strict";
+
+require("./design/styles.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+var _pages = require("./pages");
+
+var _utils = require("./utils");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", () => {
+  const router = new _navigo.default("/");
+  router.on(() => {
+    (0, _pages.CounterPage)((0, _utils.render)('#main'));
+  }).on({
+    "/about": {
+      as: "about",
+      uses: function (match) {
+        (0, _pages.AboutPage)((0, _utils.render)('#main'));
+      }
+    },
+    "/login": {
+      as: "login",
+      uses: function (match) {
+        alert("Login");
+        (0, _utils.render)(
+        /*html*/
+        ` 
+              <input type="text" name="username" placeholder="Inserisci Username"/>  
+              <input type="password" name="pass" placeholder="Inserisci Password" />  
+              <input type="submit" name="login"/>  
+            `);
+      }
+    }
+  }).resolve();
+});
