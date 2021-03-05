@@ -1,0 +1,30 @@
+div#content {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(197, 192, 228);
+  color: black;
+  font-size: 30px;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+    color: rgb(231, 166, 26);
+    border-bottom: 2px solid rgb(209, 89, 8);
+}
+
+a:focus {
+    color: red;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}
+
+h1 {
+    font-size: 40px;
+}

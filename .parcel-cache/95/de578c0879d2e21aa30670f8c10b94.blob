@@ -1,0 +1,36 @@
+"use strict";
+
+require("./styles.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", () => {
+  const router = new _navigo.default("/");
+
+  const render = content => document.querySelector("#content").innerHTML = content;
+
+  router.on(() => {
+    render(`Pagina Principale`);
+  }).on({
+    "/one": {
+      as: "one",
+      uses: function (match) {
+        render("One");
+      }
+    },
+    "/two": {
+      as: "two",
+      uses: function (match) {
+        render("Two");
+      }
+    },
+    "/": {
+      as: "home",
+      uses: function () {
+        render("Home");
+      }
+    }
+  }).resolve();
+});

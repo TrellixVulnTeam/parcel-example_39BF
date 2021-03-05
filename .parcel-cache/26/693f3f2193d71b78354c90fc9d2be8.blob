@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <a href="/" data-navigo="">Home</a>
+        <a href="/about" data-navigo="">About</a>
+        <a href="/login" data-navigo="">Login</a>
+      </div>
+      <div id="main"></div>
+
+    </body>
+    <script id="about" type="text/x-jsrender" data-parcel-key="4320b8e524924abfcd207cf80310794a">Page about loaded</script>
+<script src="c99546d5251bd9e38e808e8dd4c9f9d2"></script>    
+</html>

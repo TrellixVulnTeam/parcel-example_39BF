@@ -1,0 +1,11 @@
+div {
+  background-color: #c5c0e4;
+  color: black;
+  list-style: none;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}
+/*# sourceMappingURL=parcel-example.ad24c671.css.map */

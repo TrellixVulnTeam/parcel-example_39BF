@@ -1,0 +1,16 @@
+div#content {
+  display: flex;
+  justify-content: center;
+  background-color: #c5c0e4;
+  color: black;
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}

@@ -1,0 +1,40 @@
+"use strict";
+
+require("./styles.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+if (module.hot) {
+  module.hot.accept();
+}
+
+window.addEventListener('load', () => {
+  const router = new _navigo.default("/");
+  console.log('Mario');
+
+  const render = content => document.querySelector("#content").innerHTML = content;
+
+  router.on({
+    "/search/:v/:q": {
+      as: "search",
+      uses: function (match) {
+        render("Search " + JSON.stringify(match.data));
+      }
+    },
+    "/locations": {
+      as: "home",
+      uses: function () {
+        render("Home");
+      }
+    }
+  }); // const root = document.getElementById('root');
+  // const nome = 'Giovanni';
+  // const ciaoComponent = `
+  //     <div>
+  //       Ciao ${nome} !
+  //     </div>
+  // `
+  // root.insertAdjacentHTML('beforeend',ciaoComponent); 
+});

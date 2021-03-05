@@ -1,0 +1,19 @@
+"use strict";
+
+require("./styles.scss");
+
+window.addEventListener('load', () => {
+  const router = require('navigo');
+
+  return {
+    initialize: initialize
+  };
+  const root = document.getElementById('root');
+  const nome = 'Giovanni';
+  const ciaoComponent = `
+    <div>
+      Ciao ${nome} !
+    </div>
+  `;
+  root.insertAdjacentHTML('beforeend', ciaoComponent);
+});

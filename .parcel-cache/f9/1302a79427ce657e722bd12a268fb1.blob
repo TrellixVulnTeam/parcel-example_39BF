@@ -1,0 +1,20 @@
+"use strict";
+
+require("./styles.scss");
+
+window.addEventListener('load', () => {
+  const router = new Navigo("/");
+  router.on("/about", () => {
+    document.querySelector("#content").innerHTML = "about";
+  }).on("/links", () => {
+    document.querySelector("#my-links").innerHTML = "links!!!";
+  }).resolve();
+  const root = document.getElementById('root');
+  const nome = 'Giovanni';
+  const ciaoComponent = `
+      <div>
+        Ciao ${nome} !
+      </div>
+  `;
+  root.insertAdjacentHTML('beforeend', ciaoComponent);
+});

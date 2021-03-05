@@ -1,0 +1,19 @@
+{
+  "name": "parcel-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve index.html -p 7000 --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "navigo": "^8.9.1",
+    "node-sass": "^5.0.0",
+    "parcel": "^2.0.0-beta.1",
+    "sass": "^1.32.8"
+  },
+  "dependencies": {}
+}

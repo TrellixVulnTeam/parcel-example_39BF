@@ -1,0 +1,56 @@
+"use strict";
+
+require("./styles.scss");
+
+const nav = `
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About navigo</a></li>
+          <li><a href="/links">Links</a></li>
+        </ul>
+      `;
+
+function renderHomePage() {
+  document.querySelector("#content").innerHTML = `
+          <h1>Navigo basic example</h1>
+          <hr />
+          ${nav}
+        `;
+}
+
+function renderAboutPage() {
+  document.querySelector("#content").innerHTML = `
+          <h1>Navigo basic example | About</h1>
+          <hr />
+          ${nav}
+          <hr />
+          <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
+        `;
+}
+
+function renderLinksPage() {
+  document.querySelector("#content").innerHTML = `
+          <h1>Navigo basic example | Other links</h1>
+          <hr />
+          ${nav}
+          <hr />
+          <p>
+            <a href="https://github.com/krasimir/navigo" target="_blank">Documentation</a><br />
+            <a href="https://www.npmjs.com/package/navigo" target="_blank">NPM package</a>
+          </p>
+        `;
+}
+
+window.addEventListener("load", () => {
+  const router = new Navigo("/");
+  router.on("/about", renderAboutPage).on("/links", renderLinksPage).on("*", renderHomePage).resolve();
+}); // const root = document.getElementById('root');
+// const nome = 'Giovanni';
+// const ciaoComponent = `
+//     <div>
+//       Ciao ${nome} !
+//     </div>
+// `
+// root.insertAdjacentHTML('beforeend',ciaoComponent); 
+// })
+// })

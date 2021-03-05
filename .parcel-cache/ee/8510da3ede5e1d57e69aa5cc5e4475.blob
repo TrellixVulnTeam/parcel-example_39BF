@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="stylesheet" href="/parcel-example.ad24c671.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="/about" data-navigo="">About</a>
+        <a href="/products" data-navigo="">Products</a>
+        <a href="/login" data-navigo="">Login</a>
+    </div>
+    <div id="about">Ciao come stai?</div>
+    <hr>
+    <div id="content"></div>
+    <div id="content"></div>
+</body>
+<script type="module" src="/parcel-example.fff716d0.js"></script>    
+</html>

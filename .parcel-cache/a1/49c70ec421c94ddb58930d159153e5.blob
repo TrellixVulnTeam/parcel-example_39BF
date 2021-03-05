@@ -1,0 +1,31 @@
+"use strict";
+
+require("./styles.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", () => {
+  const router = new _navigo.default("/");
+  console.log("Heys");
+
+  const render = content => document.querySelector("#content").innerHTML = content;
+
+  router.on(() => {
+    render('Home');
+  }).on({
+    "/search/:v/:q": {
+      as: "search",
+      uses: function (match) {
+        render("ciao");
+      }
+    },
+    "/locations": {
+      as: "home",
+      uses: function () {
+        render("Home");
+      }
+    }
+  }).resolve();
+});

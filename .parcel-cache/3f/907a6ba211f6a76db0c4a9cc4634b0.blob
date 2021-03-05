@@ -1,0 +1,10 @@
+div {
+  background-color: #c5c0e4;
+  color: black;
+  list-style-type: none;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}

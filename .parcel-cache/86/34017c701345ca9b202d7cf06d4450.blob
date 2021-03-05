@@ -1,0 +1,21 @@
+div#content {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #c5c0e4;
+  color: black;
+  font-size: 30px;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus {
+  color: white;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}

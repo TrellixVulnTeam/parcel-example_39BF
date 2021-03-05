@@ -1,0 +1,56 @@
+"use strict";
+
+require("./styles.scss");
+
+require("./reset.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", () => {
+  const router = new _navigo.default("/");
+
+  const render = main => document.querySelector("#main").innerHTML = main;
+
+  router.on(() => {
+    render(
+    /*html*/
+    `
+      <section>
+        <img class="images" src="https://dummyimage.com/1024x300/000/fff&text=Immagine" style="width:100%">
+        </section>
+        <h1>Hello it's me</h1>
+      `);
+  }).on({
+    "/about": {
+      as: "about",
+      uses: function (match) {
+        render(
+        /*html*/
+        `
+            <div>
+            <img class="images" src="https://dummyimage.com/1024x300/000/fff&text=About+me" style="width:100%">
+            </div>
+            <h1 style="display: flex; justify-content: center; margin-top: 15px; margin-botton: 15px font-size: 40px">Welcome</h1>
+
+            <p style="display: flex; justify-content: flex-start; ">At Website.com, we believe everyone deserves to have a website or online store. Innovation and simplicity makes us happy: our goal is to remove any technical or financial barriers that can prevent business owners from making their own website. We're excited to help you on your journey!</p>
+
+
+          `);
+      }
+    },
+    "/login": {
+      as: "login",
+      uses: function (match) {
+        render(
+        /*html*/
+        ` 
+              <input type="text" name="username" placeholder="Inserisci Username"/>  
+              <input type="password" name="pass" placeholder="Inserisci Password" />  
+              <input type="submit" name="login"/>  
+            `);
+      }
+    }
+  }).resolve();
+});

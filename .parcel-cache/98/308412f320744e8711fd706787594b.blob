@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="/about" data-navigo="">About</a>
+        <a href="/products" data-navigo="">Products</a>
+        <a href="/login" data-navigo="">Login</a>
+    </div>
+    <hr>
+    <div id="content" data-navigo="">Ciao</div>
+</body>
+<script type="module" src="c99546d5251bd9e38e808e8dd4c9f9d2"></script>    
+</html>

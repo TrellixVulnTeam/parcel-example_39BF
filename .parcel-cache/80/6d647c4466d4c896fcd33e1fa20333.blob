@@ -1,0 +1,52 @@
+"use strict";
+
+require("./styles.scss");
+
+require("./reset.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", () => {
+  const router = new _navigo.default("/");
+
+  const render = main => document.querySelector("#main").innerHTML = main;
+
+  router.on(() => {
+    render(
+    /*html*/
+    `
+      <section>
+        <img class="images" src="https://dummyimage.com/1024x300/000/fff&text=Immagine+1" style="width:100%">
+        </section>
+        <h1>Hello it's me</h1>
+      `);
+  }).on({
+    "/about": {
+      as: "about",
+      uses: function (match) {
+        render(
+        /*html*/
+        `
+            <div>
+            <img class="images" src="https://dummyimage.com/1024x300/000/fff&text=About+me" style="width:100%">
+            </div>
+            <h1 style="display: flex; justify-content: center; margin-top: 10px; font-size: 40px">Welcome to the About page</h1>
+          `);
+      }
+    },
+    "/login": {
+      as: "login",
+      uses: function (match) {
+        render(
+        /*html*/
+        ` 
+              <input type="text" name="username" placeholder="Inserisci Username"/>  
+              <input type="password" name="pass" placeholder="Inserisci Password" />  
+              <input type="submit" name="login"/>  
+            `);
+      }
+    }
+  }).resolve();
+});

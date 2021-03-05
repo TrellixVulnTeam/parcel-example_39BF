@@ -1,0 +1,36 @@
+"use strict";
+
+require("./styles.scss");
+
+window.addEventListener('load', () => {
+  Navigo = require('navigo');
+
+  const Navigo = content => document.querySelector("#content").innerHTML = content;
+
+  window.sessionId = -1;
+  router.hooks({
+    before: function (done, match) {
+      if (window.sessionId === -1 && match.url !== "login") {
+        console.log("redirect to login");
+        router.navigate("/login");
+        return;
+      }
+
+      done();
+    }
+  });
+  router.on("/about", match => {
+    render("About");
+  }).on("/products", match => {
+    render("Products");
+  }).on("/login", match => {
+    render("Login");
+  }).resolve(); // const root = document.getElementById('root');
+  // const nome = 'Giovanni';
+  // const ciaoComponent = `
+  //     <div>
+  //       Ciao ${nome} !
+  //     </div>
+  // `
+  // root.insertAdjacentHTML('beforeend',ciaoComponent); 
+});

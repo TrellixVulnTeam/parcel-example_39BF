@@ -1,0 +1,46 @@
+"use strict";
+
+require("./styles.scss");
+
+require("./reset.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", () => {
+  const router = new _navigo.default("/");
+
+  const render = main => document.querySelector("#main").innerHTML = main;
+
+  router.on(() => {
+    render(`Pagina Principale`);
+  }).on({
+    "/about": {
+      as: "about",
+      uses: function (match) {
+        render(`About`);
+      }
+    },
+    "/login": {
+      as: "login",
+      uses: function (match) {
+        render(
+        /*html*/
+        `
+            <form action="' .$this->Urls['login_page']. '" method="post" id="form_login">  
+            <fieldset>  
+            <legend>Login<legend>  
+            <label for="login_user">Username</label>  
+                <input type="text" name="username" id="login_user" />  
+            <label for="login_pass">Password</label>  
+                <input type="password" name="pass" id="login_pass" />  
+            <input type="submit" name="login" value="login" id="login_submit"/>  
+            </fieldset>  
+            </form>  
+
+            `);
+      }
+    }
+  }).resolve();
+});

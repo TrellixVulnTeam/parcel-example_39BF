@@ -1,0 +1,13 @@
+div#content {
+  background-color: #c5c0e4;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}

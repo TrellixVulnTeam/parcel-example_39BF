@@ -1,0 +1,10 @@
+div#content {
+  background-color: #c5c0e4;
+  color: red;
+  width: 10%;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}

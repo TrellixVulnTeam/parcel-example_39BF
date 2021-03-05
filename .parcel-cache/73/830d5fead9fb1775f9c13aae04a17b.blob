@@ -1,0 +1,14 @@
+"use strict";
+
+require("./styles.scss");
+
+window.addEventListener('load', () => {
+  const root = document.getElementById('root');
+  const nome = 'Giovanni';
+  const ciaoComponent = `
+        <div>
+         Ciao ${nome} !
+        </div>
+    `;
+  root.insertAdjacentHTML('beforeend', ciaoComponent);
+});

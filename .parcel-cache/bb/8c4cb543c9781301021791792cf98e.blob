@@ -1,0 +1,10 @@
+div {
+  background-color: slateblue;
+  color: #b5bbbb;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}
+/*# sourceMappingURL=parcel-example.ad24c671.css.map */
