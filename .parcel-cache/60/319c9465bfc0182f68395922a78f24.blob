@@ -1,0 +1,29 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MoviePage = void 0;
+
+/* <p id='popularity'></p><hr>
+<p id='original_language'></p><hr>
+<p id='overview'></p><hr>
+<p id='vote_average'></p> */
+const MoviePage = render => {
+  const makeFilm = film => `
+  <div id="film">
+    <li>Title: ${film.original_title}</li>
+    <li>Riassunto: ${film.overview}</li>
+  </div>
+  `;
+
+  render(makeFilm);
+
+  const axios = require("axios");
+
+  const film = axios.get("https://api.themoviedb.org/3/movie/popular?api_key=4f9b09b41835b16489ca663662029a70&language=it").then(res => res.data.results).then(res => res.map(makeFilm)).then(res => res.join("")).then(res => {
+    document.getElementById("film").insertAdjacentHTML("afterbegin", res);
+  });
+};
+
+exports.MoviePage = MoviePage;

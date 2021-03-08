@@ -1,0 +1,21 @@
+div#main {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  display: flex;
+  list-style-type: none;
+}
+
+div#card {
+  background: white;
+  text-align: center;
+}
+
+div#card_image {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  border: 1px solid red;
+}

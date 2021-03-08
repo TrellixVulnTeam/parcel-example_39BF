@@ -1,0 +1,118 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+div#content {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #c5c0e4;
+  color: black;
+  font-size: 30px;
+  padding: 10px;
+  height: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e7a61a;
+  border-bottom: 2px solid #d15908;
+}
+
+a:focus {
+  color: red;
+}
+
+div#main {
+  background-color: white;
+  color: black;
+}
+
+h1 {
+  font-size: 40px;
+}
+div#main {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  display: flex;
+  list-style-type: none;
+}
+
+div#card {
+  flex: 1 1 calc(20% - 20px);
+  margin: 0 10px;
+}
+
+div#card_text {
+  background: #ddd6d6;
+  display: flex;
+  flex-direction: column;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 5px;
+  margin-top: -3px;
+  margin-bottom: 5px;
+}
+
+#filmShowCase {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+img#img {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+/*# sourceMappingURL=parcel-example.cf04846a.css.map */

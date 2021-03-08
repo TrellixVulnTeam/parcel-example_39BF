@@ -1,0 +1,35 @@
+div#main {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  display: flex;
+  list-style-type: none;
+}
+
+div#card {
+  flex: 1 1 calc(20% - 20px);
+}
+
+div#card_text {
+  background: #ddd6d6;
+  display: flex;
+  flex-direction: column;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 5px;
+  margin-top: -3px;
+  margin-bottom: 5px;
+}
+
+#filmShowCase {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+img#img {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}

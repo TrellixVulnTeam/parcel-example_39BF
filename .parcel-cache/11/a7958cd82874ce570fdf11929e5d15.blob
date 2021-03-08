@@ -1,0 +1,15 @@
+div#main {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  display: flex;
+  list-style-type: none;
+}
+
+div#card {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

@@ -1,0 +1,8 @@
+div#main, div#id, #content {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  list-style-type: none;
+}

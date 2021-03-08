@@ -1,0 +1,30 @@
+div#main {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  display: flex;
+  list-style-type: none;
+}
+
+div#card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  box-shadow: yellow;
+}
+
+div#card_text {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+div#card:hover {
+  transform: scale(1.05);
+}

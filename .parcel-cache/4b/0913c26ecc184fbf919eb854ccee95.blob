@@ -1,0 +1,29 @@
+div#main {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  display: flex;
+  list-style-type: none;
+}
+
+div#card {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 120px 692px 168px;
+  grid-template-areas: "image" "text" "stats";
+  border-radius: 18px;
+  background: white;
+  font-family: roboto;
+  text-align: center;
+}
+
+div#card_image {
+  grid-area: image;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+}

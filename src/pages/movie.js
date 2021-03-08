@@ -1,23 +1,45 @@
-export const MoviePage = (render) => {
-    const template =/*html*/ `
-    <div>
-        <p id='title'></p><hr>
-        <p id='popularity'></p><hr>
-        <p id='original_language'></p><hr>
-        <p id='overview'></p><hr>
-        <p id='vote_average'></p>
-    </div>
-      `;
-    render(template);
+import "./../design/style_movie.scss";
 
-    const axios = require('axios');
-        axios.get('https://api.themoviedb.org/3/movie/220?api_key=4f9b09b41835b16489ca663662029a70&language=it')
-        .then(response => {
-            document.getElementById('title').innerHTML = 'Titolo: ' + response.data.original_title
-            document.getElementById('popularity').innerHTML = 'Popolarità: ' + response.data.popularity
-            document.getElementById('original_language').innerHTML = 'Lingua Originale: ' + response.data.original_language
-            document.getElementById('overview').innerHTML = 'Riassunto: ' + response.data.overview
-            document.getElementById('vote_average').innerHTML = 'Voto Medio: ' + response.data.vote_average
-        }
+export const MoviePage = (render) => {
+
+  const template = `<div id="filmShowCase"></div>`;
+  const makeFilm = (film) =>
+    `
+    <div id="master"></div>
+  <div id="card">
+    <div class="card_image" style="background-image: url('https://image.tmdb.org/t/p/w500/${film?.poster_path}'); height: 300px; border-top-left-radius: 4px;
+    border-top-right-radius: 4px; background-size: cover;">
+        
+    </div>
+    <div id="card_text">
+        <div id="titolo">
+            <span id="titolo">Titolo: </span>
+            ${film.original_title}
+        </div>
+        <div id="amg">
+            <span id="amg">Voto Medio: </span>
+            ${film.vote_average}
+        </div>
+        <div id="data">
+            <span id="data">Data Rilascio: </span>
+            ${film.release_date}
+        </div>
+        </div>
+    <div style="clear:both;"></div>
+  </div>
+
+  `;
+  render(template);
+
+  const axios = require("axios");
+  const film = axios
+    .get(
+      "https://api.themoviedb.org/3/movie/popular?api_key=4f9b09b41835b16489ca663662029a70&language=it"
     )
-  };
+    .then((res) => res.data.results)
+    .then((res) => res.map(makeFilm))
+    .then((res) => res.join(""))
+    .then((res) => {
+      document.getElementById("filmShowCase").insertAdjacentHTML("afterbegin", res);
+    });
+};

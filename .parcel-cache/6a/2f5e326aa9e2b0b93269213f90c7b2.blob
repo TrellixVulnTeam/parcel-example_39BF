@@ -1,0 +1,9 @@
+div#main, div#id {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 black;
+}
+
+li {
+  list-style-type: none;
+}
