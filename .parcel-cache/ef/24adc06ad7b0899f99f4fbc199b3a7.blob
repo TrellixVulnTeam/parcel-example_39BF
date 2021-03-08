@@ -1,0 +1,58 @@
+"use strict";
+
+require("./design/styles.scss");
+
+var _navigo = _interopRequireDefault(require("navigo"));
+
+var _pages = require("./pages");
+
+var _utils = require("./utils");
+
+var _login = require("./pages/login");
+
+var _movie = require("./pages/movie");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", () => {
+  const router = new _navigo.default("/");
+  router.on({
+    "/about": {
+      as: "about",
+      uses: function (match) {
+        (0, _pages.AboutPage)((0, _utils.render)('#main'));
+      }
+    },
+    "/login": {
+      as: "login",
+      uses: function (match) {
+        (0, _login.LoginPage)((0, _utils.render)('#main'));
+      }
+    },
+    "/": {
+      as: "counter",
+      uses: function (match) {
+        (0, _pages.CounterPage)((0, _utils.render)('#main'));
+      }
+    },
+    "/movie": {
+      as: "Movie",
+      uses: function (match) {
+        (0, _movie.MoviePage)((0, _utils.render)('#main'));
+      }
+    }
+  }).resolve();
+
+  const axios = require('axios');
+
+  async function getUser() {
+    try {
+      const response = await axios.get('https://api.themoviedb.org/3/movie/550?api_key=4f9b09b41835b16489ca663662029a70');
+      console.log(response.original_title);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  console.log(getUser());
+});

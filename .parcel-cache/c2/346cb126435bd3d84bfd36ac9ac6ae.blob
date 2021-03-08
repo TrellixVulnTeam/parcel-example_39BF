@@ -1,0 +1,19 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.axios = void 0;
+
+const axios = require('axios');
+
+exports.axios = axios;
+
+async function getUser() {
+  try {
+    const response = await axios.get('https://api.themoviedb.org/3/movie/550?api_key=4f9b09b41835b16489ca663662029a70');
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}

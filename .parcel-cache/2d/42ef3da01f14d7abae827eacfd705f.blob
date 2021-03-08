@@ -1,0 +1,17 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MoviePage = void 0;
+
+const MoviePage = render => {
+  const template =
+  /*html*/
+  `
+         {{movies}}
+      `;
+  render(template);
+};
+
+exports.MoviePage = MoviePage;

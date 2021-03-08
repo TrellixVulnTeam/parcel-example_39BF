@@ -1,5 +1,5 @@
 export const AboutPage = (render) => {
-  const template = `
+  const template =/*html*/ `
         <div>
         <img class="images" src="https://dummyimage.com/1024x300/828bcc/0a2aa8&text=About+me" style="width:100%;">
         </div>

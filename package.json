@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.21.1",
     "navigo": "^8.9.1",
     "node-sass": "^5.0.0",
     "parcel": "^2.0.0-beta.1",

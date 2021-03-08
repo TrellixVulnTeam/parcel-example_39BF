@@ -1,0 +1,30 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MoviePage = void 0;
+
+const MoviePage = render => {
+  const template =
+  /*html*/
+  `
+        <p>${getUser() | async}</p>
+      `;
+  render(template);
+
+  const axios = require('axios');
+
+  async function getUser() {
+    try {
+      const response = await axios.get('https://api.themoviedb.org/3/movie/5?api_key=4f9b09b41835b16489ca663662029a70');
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  console.log(getUser());
+};
+
+exports.MoviePage = MoviePage;
