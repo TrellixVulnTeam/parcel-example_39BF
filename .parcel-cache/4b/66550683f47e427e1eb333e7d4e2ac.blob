@@ -1,0 +1,31 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MoviePage = void 0;
+
+const MoviePage = render => {
+  const template =
+  /*html*/
+  `
+        <button id="get-data">GET DATA</button>
+        <p id='data'></p>
+        <p id=''></p>
+      `;
+  render(template);
+
+  const axios = require('axios');
+
+  const getDatas = document.getElementById('get-data');
+
+  const getData = () => {
+    axios.get('https://api.themoviedb.org/3/movie/550?api_key=4f9b09b41835b16489ca663662029a70').then(response => {
+      document.getElementById('data').innerHTML = response.data.adult;
+    });
+  };
+
+  getDatas.addEventListener('click', getData);
+};
+
+exports.MoviePage = MoviePage;

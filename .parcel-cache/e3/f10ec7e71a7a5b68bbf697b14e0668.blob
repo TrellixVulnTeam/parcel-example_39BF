@@ -1,0 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MoviePage = void 0;
+
+const MoviePage = render => {
+  const template =
+  /*html*/
+  `
+    <div>
+        <p id='title'></p>
+        <p id='popularity'></p>
+        <p id='overview'></p>
+    </div>
+      `;
+  render(template);
+
+  const axios = require('axios');
+
+  axios.get('https://api.themoviedb.org/3/movie/550?api_key=4f9b09b41835b16489ca663662029a70&language=it').then(response => {
+    document.getElementById('title').innerHTML = 'Titolo: ' + response.data.original_title, document.getElementById('popularity').innerHTML = 'Popolarità: ' + response.data.popularity;
+    document.getElementById('overview').innerHTML = 'Popolarità: ' + response.data.overview;
+  });
+};
+
+exports.MoviePage = MoviePage;

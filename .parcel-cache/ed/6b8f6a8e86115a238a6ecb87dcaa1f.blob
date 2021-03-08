@@ -1,0 +1,32 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MoviePage = void 0;
+
+const MoviePage = render => {
+  const template =
+  /*html*/
+  `
+        <button id="get-data">GET DATA</button>
+        <p id='title'></p>
+        <p id='popularity'></p>
+        <img src="'+ data.poster_path + '' " id='img'>
+      `;
+  render(template);
+
+  const axios = require('axios');
+
+  const getDatas = document.getElementById('get-data');
+
+  const getData = () => {
+    axios.get('https://api.themoviedb.org/3/movie/550?api_key=4f9b09b41835b16489ca663662029a70').then(response => {
+      document.getElementById('title').innerHTML = 'Titolo: ' + response.data.original_title, document.getElementById('popularity').innerHTML = 'Popolarità: ' + response.data.popularity, document.getElementById('img').src = response.data.poster_path;
+    });
+  };
+
+  getDatas.addEventListener('click', getData);
+};
+
+exports.MoviePage = MoviePage;
