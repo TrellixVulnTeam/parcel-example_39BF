@@ -22,8 +22,19 @@ div#card_text {
     padding: 5px;
     margin-top: -3px;
     margin-bottom: 5px;
+    height: 74px;
 }
-
+.icon {
+    cursor: pointer;
+    border: 3px solid white; 
+    position: relative; 
+    top: 297px; 
+    width: 24%; 
+    margin-left: 142px;
+}
+.icon:hover {
+    border: 3px solid red !important; 
+}
 
 @media screen and (max-width: 550px) {
     div#filmShowCase {

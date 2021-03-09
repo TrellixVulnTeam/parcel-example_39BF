@@ -36,7 +36,6 @@ rbtn.addEventListener("click", () => {
     count=0;
     value.style.color="#463F3A";
     value.innerHTML=count;
-    
 });
 
 ibtn.addEventListener("click", () => {
@@ -46,6 +45,5 @@ ibtn.addEventListener("click", () => {
         value.style.color="rgb(2, 75, 2)";
     }
     value.innerHTML=count;
-    
 });
 };
